@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StrainChain - Cannabis Authentication</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0d1421 0%, #1a2332 50%, #2d4a3e 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        .container { max-width: 100vw; margin: 0; background: rgba(255, 255, 255, 0.02); min-height: 100vh; }
+        .header { background: linear-gradient(90deg, rgba(0, 212, 170, 0.2) 0%, rgba(45, 74, 62, 0.3) 100%); padding: 20px; text-align: center; border-bottom: 1px solid rgba(0, 212, 170, 0.3); }
+        .logo { font-size: 28px; font-weight: bold; background: linear-gradient(45deg, #00d4aa, #4facfe); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .tagline { font-size: 14px; opacity: 0.8; color: #b0bec5; }
+        .main-content { padding: 20px; }
+        .scanner-section { background: rgba(0, 212, 170, 0.1); border: 2px dashed rgba(0, 212, 170, 0.5); border-radius: 20px; padding: 30px; text-align: center; margin-bottom: 30px; }
+        .scan-button { background: linear-gradient(45deg, #00d4aa, #4facfe); border: none; color: white; padding: 15px 30px; border-radius: 25px; font-size: 16px; font-weight: 600; cursor: pointer; width: 100%; transition: all 0.3s ease; }
+        .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px; }
+        .feature-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 212, 170, 0.2); border-radius: 15px; padding: 20px; text-align: center; cursor: pointer; }
+        .stats-bar { display: flex; justify-content: space-around; background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 20px; margin-bottom: 30px; }
+        .stat-number { font-size: 24px; font-weight: bold; color: #00d4aa; }
+        .premium-banner { background: linear-gradient(45deg, #667eea 0%, #764ba2 100%); border-radius: 20px; padding: 25px; text-align: center; margin: 30px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🌿 StrainChain</div>
+            <div class="tagline">Cannabis Authentication on TON Blockchain</div>
+        </div>
+        <div class="main-content">
+            <div class="scanner-section">
+                <div style="font-size: 32px; margin-bottom: 10px;">📱</div>
+                <h3>Scan Cannabis Product</h3>
+                <p>Verify authenticity and view detailed strain information</p>
+                <button class="scan-button" onclick="startScanner()">📸 Start QR Scanner</button>
+            </div>
+            <div class="stats-bar">
+                <div style="text-align: center;">
+                    <div class="stat-number">1,247</div>
+                    <div style="font-size: 12px; opacity: 0.7;">Verified Today</div>
+                </div>
+                <div style="text-align: center;">
+                    <div class="stat-number">98.7%</div>
+                    <div style="font-size: 12px; opacity: 0.7;">Authentic Rate</div>
+                </div>
+                <div style="text-align: center;">
+                    <div class="stat-number">.3M</div>
+                    <div style="font-size: 12px; opacity: 0.7;">Counterfeits Prevented</div>
+                </div>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div style="font-size: 32px; margin-bottom: 10px;">🧪</div>
+                    <div style="font-weight: 600; margin-bottom: 8px;">Lab Results</div>
+                    <div style="font-size: 12px; opacity: 0.7;">View verified THC/CBD content</div>
+                </div>
+                <div class="feature-card">
+                    <div style="font-size: 32px; margin-bottom: 10px;">🧬</div>
+                    <div style="font-weight: 600; margin-bottom: 8px;">Strain Genetics</div>
+                    <div style="font-size: 12px; opacity: 0.7;">Complete lineage information</div>
+                </div>
+                <div class="feature-card">
+                    <div style="font-size: 32px; margin-bottom: 10px;">⛓️</div>
+                    <div style="font-weight: 600; margin-bottom: 8px;">Blockchain Verified</div>
+                    <div style="font-size: 12px; opacity: 0.7;">Immutable TON authentication</div>
+                </div>
+                <div class="feature-card">
+                    <div style="font-size: 32px; margin-bottom: 10px;">💰</div>
+                    <div style="font-weight: 600; margin-bottom: 8px;">Earn Rewards</div>
+                    <div style="font-size: 12px; opacity: 0.7;">Get paid for verifications</div>
+                </div>
+            </div>
+            <div class="premium-banner">
+                <div style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">🌟 StrainChain Premium</div>
+                <div>Unlock advanced authentication features for .99/month</div>
+                <button class="scan-button" style="margin-top: 15px;" onclick="upgradePremium()">⭐ Upgrade to Premium</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const CONFIG = {
+            TELEGRAM_BOT_TOKEN: '7644319309:AAEDokIRQXjJHkmqDs7sa2zKBYWJOBJc0qY',
+            TON_WALLET_ADDRESS: 'UQA4KgVKjfNkwcbSyKv7C2hintUILFukbs3hLzHeaY9hlyb_',
+            API_BASE_URL: 'https://Z-kie.github.io/strainchain-production',
+            BUSINESS_EMAIL: 'z@strainchain.io',
+            BUSINESS_TELEGRAM: '@Undone0603'
+        };
+        
+        let tg = window.Telegram?.WebApp;
+        if (tg) {
+            tg.ready();
+            tg.expand();
+        }
+        
+        function startScanner() {
+            if (tg) {
+                tg.showAlert('🔍 Scanner activated! Point camera at QR code on cannabis product.');
+            } else {
+                alert('🔍 Scanner activated! (Demo mode - connect via Telegram for full functionality)');
+            }
+        }
+        
+        function upgradePremium() {
+            if (tg) {
+                tg.showAlert('🌟 Premium upgrade initiated! You will be charged .99/month for advanced features.');
+            } else {
+                alert('🌟 Premium upgrade available! Connect via Telegram to upgrade.');
+            }
+        }
+        
+        console.log('StrainChain initialized for domain:', CONFIG.API_BASE_URL);
+    </script>
+</body>
+</html>
