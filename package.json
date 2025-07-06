@@ -1,0 +1,13 @@
+﻿{
+  "name": "strainchain-production",
+  "version": "1.0.0",
+  "description": "StrainChain Cannabis Authentication Platform",
+  "main": "public/index.html",
+  "scripts": {
+    "start": "python -m http.server 8000 --directory public",
+    "deploy": "gh-pages -d public"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.0"
+  }
+}
