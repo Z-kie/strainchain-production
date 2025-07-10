@@ -1,4 +1,68 @@
-<!DOCTYPE html>
+        // Sample NFT data for demonstration
+        const sampleNFTs = [
+            {
+                id: 'vintage_001',
+                name: 'Maui Wowie Classic',
+                era: '1970s',
+                price: 5.0,
+                type: 'static',
+                image: '🌺',
+                description: '1974 Hawaiian packaging - Psychedelic rainbow design',
+                rarity: 'legendary',
+                sold: false,
+                views: 1247,
+                likes: 89
+            },
+            {
+                id: 'vintage_002', 
+                name: 'Underground Kush',
+                era: '1980s',
+                price: 3.5,
+                type: 'animated',
+                image: '🎨',
+                description: '1982 California street art style packaging',
+                rarity: 'rare',
+                sold: false,
+                views: 892,
+                likes: 67
+            },
+            {
+                id: 'vintage_003',
+                name: 'Medical Mint',
+                era: '2000s',
+                price: 2.0,
+                type: 'static',
+                image: '🏥',
+                description: '2003 Early medical cannabis professional design',
+                rarity: 'uncommon',
+                sold: true,
+                views: 543,
+                likes: 34
+            },
+            {
+                id: 'vintage_004',
+                name: 'Northern Lights Heritage',
+                era: '1990s',
+                price: 15.0,
+                type: 'interactive',
+                image: '🌌',
+                description: '1995 Legendary strain packaging with grow info',
+                rarity: 'legendary',
+                sold: false,
+                views: 2103,
+                likes: 156
+            },
+            {
+                id: 'vintage_005',
+                name: 'OG Kush Original',
+                era: '1990s',
+                price: 25.0,
+                type: 'commercial',
+                image: '👑',
+                description: 'Original OG Kush packaging - Full commercial rights',
+                rarity: 'mythic',
+                sold: false,
+                views: <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,6 +81,8 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #0d1421 0%, #1a2332 50%, #2d4a3e 100%);
             color: #ffffff;
+            min-height: 100vh;
+            padding: 0;
             overflow-x: hidden;
         }
 
@@ -25,441 +91,391 @@
             margin: 0;
             background: rgba(255, 255, 255, 0.02);
             min-height: 100vh;
-            backdrop-filter: blur(10px);
         }
 
         .header {
-            background: linear-gradient(90deg, rgba(0, 212, 170, 0.2) 0%, rgba(45, 74, 62, 0.3) 100%);
+            background: linear-gradient(135deg, #00d4aa 0%, #4ade80 100%);
             padding: 20px;
             text-align: center;
-            border-bottom: 1px solid rgba(0, 212, 170, 0.3);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            position: relative;
+            overflow: hidden;
         }
 
         .logo {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: bold;
-            background: linear-gradient(45deg, #00d4aa, #4facfe);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             margin-bottom: 5px;
-        }
-
-        .tagline {
-            font-size: 14px;
-            opacity: 0.8;
-            color: #b0bec5;
-        }
-
-        .main-content {
-            padding: 20px;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .feature-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(0, 212, 170, 0.2);
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: #00d4aa;
-            background: rgba(0, 212, 170, 0.1);
-        }
-
-        .feature-icon {
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
-
-        .feature-title {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #ffffff;
-        }
-
-        .feature-desc {
-            font-size: 12px;
-            opacity: 0.7;
-            line-height: 1.4;
-        }
-
-        .scanner-section {
-            background: rgba(0, 212, 170, 0.1);
-            border: 2px dashed rgba(0, 212, 170, 0.5);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .scan-button {
-            background: linear-gradient(45deg, #00d4aa, #4facfe);
-            border: none;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 25px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            margin: 15px 0;
-            width: 100%;
-            transition: all 0.3s ease;
-        }
-
-        .scan-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.3);
-        }
-
-        .stats-bar {
             display: flex;
-            justify-content: space-around;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 30px;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .premium-badge {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #1a1a1a;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .user-stats {
+            display: flex;
+            justify-content: space-between;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 10px 20px;
+            font-size: 12px;
         }
 
         .stat-item {
             text-align: center;
         }
 
-        .stat-number {
-            font-size: 24px;
+        .stat-value {
             font-weight: bold;
             color: #00d4aa;
         }
 
-        .stat-label {
-            font-size: 12px;
-            opacity: 0.7;
-            margin-top: 5px;
-        }
-
-        .premium-banner {
-            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
-            border-radius: 20px;
-            padding: 25px;
-            margin-bottom: 30px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .premium-banner::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-
-        .premium-title {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .premium-features {
-            list-style: none;
-            text-align: left;
-            margin: 15px 0;
-        }
-
-        .premium-features li {
-            margin: 8px 0;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .premium-features li::before {
-            content: '✅';
-            position: absolute;
-            left: 0;
-        }
-
-        .earnings-section {
-            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 87, 34, 0.1) 100%);
-            border-radius: 20px;
-            padding: 25px;
-            margin-bottom: 30px;
-        }
-
-        .earnings-header {
+        .nav-tabs {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .earnings-title {
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .earnings-total {
-            font-size: 24px;
-            font-weight: bold;
-            color: #ffc107;
-        }
-
-        .earning-opportunities {
-            display: grid;
-            gap: 15px;
-        }
-
-        .earning-item {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .earning-info {
-            flex: 1;
-        }
-
-        .earning-task {
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .earning-desc {
-            font-size: 12px;
-            opacity: 0.7;
-        }
-
-        .earning-reward {
-            color: #ffc107;
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        .verification-result {
-            background: rgba(0, 212, 170, 0.1);
-            border: 1px solid #00d4aa;
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px 0;
-            display: none;
-        }
-
-        .verification-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .verification-status {
-            font-size: 18px;
-            font-weight: bold;
-            margin-left: 10px;
-        }
-
-        .strain-details {
-            display: grid;
-            gap: 10px;
-        }
-
-        .detail-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
+            background: rgba(0, 0, 0, 0.3);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            overflow-x: auto;
         }
 
-        .nft-marketplace {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 25px;
-            margin-bottom: 30px;
-        }
-
-        .marketplace-header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .nft-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .nft-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 15px;
-            text-align: center;
-            border: 1px solid rgba(0, 212, 170, 0.2);
-        }
-
-        .nft-image {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(45deg, #00d4aa, #4facfe);
-            border-radius: 10px;
-            margin: 0 auto 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-        }
-
-        .nft-name {
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .nft-price {
-            color: #00d4aa;
-            font-weight: bold;
-        }
-
-        .action-buttons {
-            display: grid;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .action-button {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 15px;
-            border-radius: 15px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .action-button:hover {
-            background: rgba(0, 212, 170, 0.2);
-            border-color: #00d4aa;
-        }
-
-        .ton-wallet {
-            background: rgba(0, 136, 204, 0.1);
-            border: 1px solid rgba(0, 136, 204, 0.3);
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-            padding: 20px;
-        }
-
-        .modal-content {
-            background: #1a2332;
-            border-radius: 20px;
-            padding: 30px;
-            max-width: 400px;
-            margin: 50px auto;
-            position: relative;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 24px;
-            cursor: pointer;
-            color: #888;
-        }
-
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .tab-navigation {
-            display: flex;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 5px;
-            margin-bottom: 20px;
-        }
-
-        .tab-button {
+        .nav-tab {
             flex: 1;
-            background: transparent;
-            border: none;
-            color: white;
-            padding: 12px;
-            border-radius: 10px;
+            min-width: 80px;
+            padding: 12px 8px;
+            text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
+            border: none;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            position: relative;
+            white-space: nowrap;
         }
 
-        .tab-button.active {
-            background: linear-gradient(45deg, #00d4aa, #4facfe);
+        .nav-tab.active {
+            color: #00d4aa;
+            background: rgba(0, 212, 170, 0.1);
+        }
+
+        .nav-tab.premium {
+            background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), rgba(255, 237, 78, 0.1));
+            border: 1px solid rgba(255, 215, 0, 0.3);
         }
 
         .tab-content {
             display: none;
+            padding: 15px;
+            min-height: calc(100vh - 200px);
         }
 
         .tab-content.active {
             display: block;
+            animation: fadeIn 0.3s ease-in-out;
         }
 
-        @media (max-width: 480px) {
-            .feature-grid {
-                grid-template-columns: 1fr;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .upgrade-banner {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #1a1a1a;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .upgrade-banner:hover {
+            transform: translateY(-2px);
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .feature-locked {
+            opacity: 0.6;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .premium-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .lock-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+            color: #00d4aa;
+            font-size: 14px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #00d4aa;
+            box-shadow: 0 0 0 2px rgba(0, 212, 170, 0.1);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00d4aa 0%, #4ade80 100%);
+            color: white;
+        }
+
+        .btn-premium {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #1a1a1a;
+            font-weight: bold;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .pricing-card {
+            background: linear-gradient(135deg, rgba(0, 212, 170, 0.1), rgba(74, 222, 128, 0.1));
+            border: 2px solid #00d4aa;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .pricing-card.featured {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 237, 78, 0.1));
+            border-color: #ffd700;
+            transform: scale(1.02);
+        }
+
+        .price {
+            font-size: 32px;
+            font-weight: bold;
+            color: #00d4aa;
+            margin-bottom: 10px;
+        }
+
+        .price.premium {
+            color: #ffd700;
+        }
+
+        .price-period {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+
+        .features-list li {
+            padding: 5px 0;
+            font-size: 14px;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            color: #00d4aa;
+            margin-right: 8px;
+            font-weight: bold;
+        }
+
+        .subscription-status {
+            background: rgba(0, 212, 170, 0.1);
+            border: 1px solid #00d4aa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .verification-result {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .verified {
+            background: rgba(74, 222, 128, 0.2);
+            color: #4ade80;
+            border: 1px solid #4ade80;
+        }
+
+        .counterfeit {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            border: 1px solid #ef4444;
+        }
+
+        .qr-scanner {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .qr-placeholder {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 15px;
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .earnings-display {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 237, 78, 0.1));
+            border: 1px solid #ffd700;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .earnings-amount {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ffd700;
+            margin-bottom: 5px;
+        }
+
+        .referral-code {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 16px;
+            letter-spacing: 2px;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .success-message, .error-message {
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 15px;
+            display: none;
+        }
+
+        .success-message {
+            background: rgba(74, 222, 128, 0.1);
+            color: #4ade80;
+            border: 1px solid #4ade80;
+        }
+
+        .error-message {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            border: 1px solid #ef4444;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            display: none;
+        }
+
+        .spinner {
+            width: 30px;
+            height: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-top: 2px solid #00d4aa;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .business-cta {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 360px) {
+            .nav-tab {
+                font-size: 11px;
+                padding: 10px 6px;
             }
             
-            .nft-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats-bar {
-                flex-direction: column;
-                gap: 15px;
+            .pricing-card {
+                padding: 15px;
             }
         }
     </style>
@@ -467,909 +483,917 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="logo">🌿 StrainChain</div>
-            <div class="tagline">Cannabis Authentication on TON Blockchain</div>
+            <div class="logo">
+                🌿 StrainChain
+                <span class="premium-badge" id="userBadge" style="display: none;">PRO</span>
+            </div>
+            <div class="tagline">Cannabis Authentication on TON</div>
         </div>
 
-        <div class="main-content">
-            <!-- Tab Navigation -->
-            <div class="tab-navigation">
-                <button class="tab-button active" onclick="switchTab('verify')">Verify</button>
-                <button class="tab-button" onclick="switchTab('marketplace')">Marketplace</button>
-                <button class="tab-button" onclick="switchTab('earn')">Earn</button>
-                <button class="tab-button" onclick="switchTab('premium')">Premium</button>
+        <div class="user-stats">
+            <div class="stat-item">
+                <div class="stat-value" id="userLevel">FREE</div>
+                <div>Plan</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="verificationCount">0</div>
+                <div>Verified</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="earningsCount">0.00</div>
+                <div>TON Earned</div>
+            </div>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="switchTab('verify')">Verify</button>
+            <button class="nav-tab" onclick="switchTab('mint')">Mint</button>
+            <button class="nav-tab premium" onclick="switchTab('premium')">Premium</button>
+            <button class="nav-tab" onclick="switchTab('earn')">Earn</button>
+            <button class="nav-tab" onclick="switchTab('business')">Business</button>
+            <button class="nav-tab premium" onclick="switchTab('gallery')">🎨 Art Gallery</button>
+        </div>
+
+        <!-- Verify Tab -->
+        <div id="verify" class="tab-content active">
+            <div class="success-message" id="verifySuccess"></div>
+            <div class="error-message" id="verifyError"></div>
+
+            <!-- Free users get limited verifications -->
+            <div id="freeUserLimit" class="upgrade-banner" onclick="switchTab('premium')" style="display: none;">
+                ⚠️ Free plan: 3 verifications remaining. Upgrade for unlimited!
             </div>
 
-            <!-- Verify Tab -->
-            <div id="verify-tab" class="tab-content active">
-                <!-- Scanner Section -->
-                <div class="scanner-section">
-                    <div class="feature-icon">📱</div>
-                    <h3>Scan Cannabis Product</h3>
-                    <p>Verify authenticity and view detailed strain information</p>
-                    <button class="scan-button" onclick="startScanner()">
-                        📸 Start QR Scanner
-                    </button>
-                    <div style="margin-top: 15px; font-size: 12px; opacity: 0.7;">
-                        Or enter batch code manually
-                    </div>
-                    <input type="text" id="batch-input" placeholder="Enter batch code..." 
-                           style="width: 100%; padding: 10px; margin-top: 10px; border-radius: 10px; 
-                                  border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); 
-                                  color: white;">
-                </div>
-
-                <!-- Quick Stats -->
-                <div class="stats-bar">
-                    <div class="stat-item">
-                        <div class="stat-number" id="totalScans">1,247</div>
-                        <div class="stat-label">Verified Today</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" id="authenticProducts">98.7%</div>
-                        <div class="stat-label">Authentic Rate</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" id="savedMoney">$2.3M</div>
-                        <div class="stat-label">Counterfeits Prevented</div>
-                    </div>
-                </div>
-
-                <!-- Feature Grid -->
-                <div class="feature-grid">
-                    <div class="feature-card" onclick="showFeatureInfo('lab')">
-                        <div class="feature-icon">🧪</div>
-                        <div class="feature-title">Lab Results</div>
-                        <div class="feature-desc">View verified THC/CBD content and purity tests</div>
-                    </div>
-                    <div class="feature-card" onclick="showFeatureInfo('genetics')">
-                        <div class="feature-icon">🧬</div>
-                        <div class="feature-title">Strain Genetics</div>
-                        <div class="feature-desc">Explore complete lineage and breeding information</div>
-                    </div>
-                    <div class="feature-card" onclick="showFeatureInfo('blockchain')">
-                        <div class="feature-icon">⛓️</div>
-                        <div class="feature-title">Blockchain Verified</div>
-                        <div class="feature-desc">Immutable authentication on TON network</div>
-                    </div>
-                    <div class="feature-card" onclick="showFeatureInfo('community')">
-                        <div class="feature-icon">👥</div>
-                        <div class="feature-title">Community</div>
-                        <div class="feature-desc">Join 50K+ verified cannabis enthusiasts</div>
-                    </div>
-                </div>
-
-                <!-- Verification Result (Hidden by default) -->
-                <div id="verification-result" class="verification-result">
-                    <div class="verification-header">
-                        <span style="font-size: 24px;">✅</span>
-                        <div class="verification-status">AUTHENTIC VERIFIED</div>
-                    </div>
-                    <div class="strain-details">
-                        <div class="detail-row">
-                            <span>Strain:</span>
-                            <span id="strain-name">Purple Haze Premium</span>
-                        </div>
-                        <div class="detail-row">
-                            <span>Type:</span>
-                            <span id="strain-type">Sativa Dominant Hybrid</span>
-                        </div>
-                        <div class="detail-row">
-                            <span>THC:</span>
-                            <span id="thc-content">22.5%</span>
-                        </div>
-                        <div class="detail-row">
-                            <span>CBD:</span>
-                            <span id="cbd-content">0.8%</span>
-                        </div>
-                        <div class="detail-row">
-                            <span>Batch:</span>
-                            <span id="batch-number">#PH-2024-0315</span>
-                        </div>
-                        <div class="detail-row">
-                            <span>Lab:</span>
-                            <span id="lab-name">GreenLab Analytics</span>
-                        </div>
-                        <div class="detail-row">
-                            <span>Tested:</span>
-                            <span id="test-date">March 15, 2024</span>
-                        </div>
-                        <div class="detail-row">
-                            <span>NFT Value:</span>
-                            <span id="nft-value" style="color: #00d4aa;">$45.00</span>
-                        </div>
-                    </div>
-                    <div class="action-buttons">
-                        <button class="action-button" onclick="viewFullReport()">
-                            📊 View Full Lab Report
-                        </button>
-                        <button class="action-button" onclick="collectNFT()">
-                            💎 Collect NFT Certificate
-                        </button>
-                    </div>
-                </div>
+            <div class="qr-scanner">
+                <div class="qr-placeholder" id="qrPlaceholder">📱</div>
+                <p>Scan QR code on cannabis package</p>
+                <button class="btn btn-primary" onclick="simulateQRScan()">
+                    Simulate QR Scan
+                </button>
             </div>
 
-            <!-- Marketplace Tab -->
-            <div id="marketplace-tab" class="tab-content">
-                <div class="nft-marketplace">
-                    <div class="marketplace-header">
-                        <h3>🏪 NFT Marketplace</h3>
-                        <p>Trade authenticated strain certificates</p>
-                    </div>
-                    <div class="nft-grid">
-                        <div class="nft-card" onclick="viewNFT('og-kush')">
-                            <div class="nft-image">🌿</div>
-                            <div class="nft-name">OG Kush #001</div>
-                            <div class="nft-price">12 TON</div>
-                        </div>
-                        <div class="nft-card" onclick="viewNFT('blue-dream')">
-                            <div class="nft-image">💙</div>
-                            <div class="nft-name">Blue Dream #156</div>
-                            <div class="nft-price">8.5 TON</div>
-                        </div>
-                        <div class="nft-card" onclick="viewNFT('sour-diesel')">
-                            <div class="nft-image">⚡</div>
-                            <div class="nft-name">Sour Diesel #089</div>
-                            <div class="nft-price">15 TON</div>
-                        </div>
-                        <div class="nft-card" onclick="viewNFT('white-widow')">
-                            <div class="nft-image">❄️</div>
-                            <div class="nft-name">White Widow #234</div>
-                            <div class="nft-price">11 TON</div>
-                        </div>
-                    </div>
-                    <div class="action-buttons">
-                        <button class="action-button" onclick="connectWallet()">
-                            💰 Connect TON Wallet
-                        </button>
-                        <button class="action-button" onclick="viewMyCollection()">
-                            🖼️ My Collection
-                        </button>
-                    </div>
-                </div>
+            <div class="form-group">
+                <label class="form-label">Or Enter Verification Code</label>
+                <input type="text" class="form-input" id="verificationCode" placeholder="STRAIN-ABC123">
+                <button class="btn btn-secondary" onclick="verifyStrain()" style="margin-top: 10px;">
+                    Verify Strain
+                </button>
             </div>
 
-            <!-- Earn Tab -->
-            <div id="earn-tab" class="tab-content">
-                <div class="earnings-section">
-                    <div class="earnings-header">
-                        <div class="earnings-title">💰 Earn Rewards</div>
-                        <div class="earnings-total" id="total-earnings">$127.50</div>
+            <div id="verificationResult" style="display: none;">
+                <div class="verification-result verified">
+                    <h3>✅ AUTHENTIC STRAIN VERIFIED</h3>
+                    <div class="feature-card">
+                        <h4 id="verifiedStrainName">Purple Haze</h4>
+                        <p><strong>Genetics:</strong> <span id="verifiedGenetics">Sativa Dominant</span></p>
+                        <p><strong>THC:</strong> <span id="verifiedTHC">24.5%</span> | <strong>CBD:</strong> <span id="verifiedCBD">1.2%</span></p>
+                        <p><strong>Cultivator:</strong> <span id="verifiedCultivator">Green Valley Farms</span></p>
+                        <p><strong>Lab:</strong> <span id="verifiedLab">GreenTech Labs</span></p>
+                        <p><strong>Test Date:</strong> <span id="testDate">Dec 15, 2024</span></p>
                     </div>
-                    <div class="earning-opportunities">
-                        <div class="earning-item" onclick="completeTask('scan')">
-                            <div class="earning-info">
-                                <div class="earning-task">Scan 5 Products</div>
-                                <div class="earning-desc">Verify cannabis authenticity</div>
-                            </div>
-                            <div class="earning-reward">+$2.50</div>
+                    
+                    <!-- Premium feature teaser -->
+                    <div class="feature-card feature-locked" id="premiumAnalysis">
+                        <div class="premium-overlay">
+                            <div class="lock-icon">🔒</div>
+                            <p>Advanced Lab Analysis</p>
+                            <button class="btn btn-premium" onclick="switchTab('premium')">Upgrade to Premium</button>
                         </div>
-                        <div class="earning-item" onclick="completeTask('review')">
-                            <div class="earning-info">
-                                <div class="earning-task">Write Product Review</div>
-                                <div class="earning-desc">Share your experience</div>
-                            </div>
-                            <div class="earning-reward">+$5.00</div>
-                        </div>
-                        <div class="earning-item" onclick="completeTask('refer')">
-                            <div class="earning-info">
-                                <div class="earning-task">Refer Friend</div>
-                                <div class="earning-desc">Invite to StrainChain</div>
-                            </div>
-                            <div class="earning-reward">+$10.00</div>
-                        </div>
-                        <div class="earning-item" onclick="completeTask('daily')">
-                            <div class="earning-info">
-                                <div class="earning-task">Daily Check-in</div>
-                                <div class="earning-desc">Visit app daily</div>
-                            </div>
-                            <div class="earning-reward">+$1.00</div>
-                        </div>
-                        <div class="earning-item" onclick="completeTask('nft')">
-                            <div class="earning-info">
-                                <div class="earning-task">Trade NFT</div>
-                                <div class="earning-desc">Buy or sell strain NFT</div>
-                            </div>
-                            <div class="earning-reward">+$15.00</div>
-                        </div>
+                        <h4>Detailed Terpene Profile</h4>
+                        <p>Myrcene: 0.8% | Limonene: 0.6% | Pinene: 0.4%</p>
+                        <p>Effects prediction, similar strains, and market pricing</p>
                     </div>
-                    <div class="action-buttons">
-                        <button class="action-button" onclick="withdrawEarnings()">
-                            💸 Withdraw to TON Wallet
-                        </button>
-                        <button class="action-button" onclick="viewEarningHistory()">
-                            📈 Earning History
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Premium Tab -->
-            <div id="premium-tab" class="tab-content">
-                <div class="premium-banner pulse">
-                    <div class="premium-title">🌟 StrainChain Premium</div>
-                    <div style="margin: 15px 0;">Unlock advanced authentication features</div>
-                    <ul class="premium-features">
-                        <li>Unlimited strain verifications</li>
-                        <li>Advanced lab result analytics</li>
-                        <li>Priority customer support</li>
-                        <li>Exclusive NFT drops</li>
-                        <li>White-label business solutions</li>
-                        <li>API access for integration</li>
-                        <li>Advanced earning opportunities</li>
-                    </ul>
-                    <div style="font-size: 24px; font-weight: bold; margin: 20px 0;">
-                        $29.99/month
-                    </div>
-                    <button class="scan-button" onclick="upgradeToPremium()">
-                        ⭐ Upgrade to Premium
-                    </button>
-                </div>
-
-                <!-- Premium Features Demo -->
-                <div class="feature-grid">
-                    <div class="feature-card" onclick="showPremiumFeature('analytics')">
-                        <div class="feature-icon">📊</div>
-                        <div class="feature-title">Advanced Analytics</div>
-                        <div class="feature-desc">Deep insights into strain quality and market trends</div>
-                    </div>
-                    <div class="feature-card" onclick="showPremiumFeature('api')">
-                        <div class="feature-icon">🔌</div>
-                        <div class="feature-title">API Access</div>
-                        <div class="feature-desc">Integrate StrainChain into your business</div>
-                    </div>
-                    <div class="feature-card" onclick="showPremiumFeature('support')">
-                        <div class="feature-icon">🎧</div>
-                        <div class="feature-title">Priority Support</div>
-                        <div class="feature-desc">24/7 dedicated customer success team</div>
-                    </div>
-                    <div class="feature-card" onclick="showPremiumFeature('nft')">
-                        <div class="feature-icon">💎</div>
-                        <div class="feature-title">Exclusive NFTs</div>
-                        <div class="feature-desc">Early access to limited edition drops</div>
-                    </div>
-                </div>
-
-                <div class="action-buttons">
-                    <button class="action-button" onclick="contactSales()">
-                        💼 Business Solutions
-                    </button>
-                    <button class="action-button" onclick="viewTestimonials()">
-                        ⭐ Customer Reviews
-                    </button>
                 </div>
             </div>
         </div>
 
-        <!-- TON Wallet Connection -->
-        <div class="ton-wallet" id="ton-wallet" style="display: none;">
-            <h4>🔗 TON Wallet Connected</h4>
-            <p id="wallet-address">UQD...abc123</p>
-            <p>Balance: <span id="wallet-balance">45.2 TON</span></p>
-        </div>
-    </div>
+        <!-- Mint Tab -->
+        <div id="mint" class="tab-content">
+            <div class="success-message" id="mintSuccess"></div>
+            <div class="error-message" id="mintError"></div>
 
-    <!-- Modals -->
-    <div id="feature-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('feature-modal')">&times;</span>
-            <div id="modal-content-area">
-                <!-- Dynamic content will be inserted here -->
+            <!-- Business account required notice -->
+            <div class="business-cta" id="businessRequired">
+                <h3>🏢 Business Account Required</h3>
+                <p>NFT minting is available for licensed cannabis businesses only</p>
+                <button class="btn btn-premium" onclick="switchTab('business')">
+                    Upgrade to Business Account
+                </button>
+            </div>
+
+            <div id="mintForm" style="display: none;">
+                <form id="strainMintForm">
+                    <div class="form-group">
+                        <label class="form-label">Strain Name</label>
+                        <input type="text" class="form-input" id="strainName" placeholder="e.g., Purple Haze" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Genetics</label>
+                        <input type="text" class="form-input" id="genetics" placeholder="e.g., Sativa Dominant Hybrid">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">THC %</label>
+                        <input type="number" class="form-input" id="thc" placeholder="24.5" step="0.1" max="50">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">CBD %</label>
+                        <input type="number" class="form-input" id="cbd" placeholder="1.2" step="0.1" max="50">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Lab Certification ID</label>
+                        <input type="text" class="form-input" id="labId" placeholder="LAB-2024-001" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Cultivator License</label>
+                        <input type="text" class="form-input" id="cultivator" placeholder="License #12345" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        Mint Authentication NFT (0.5 TON)
+                    </button>
+                </form>
+            </div>
+
+            <div class="loading" id="mintLoading">
+                <div class="spinner"></div>
+                <p>Minting NFT on TON blockchain...</p>
+            </div>
+        </div>
+
+        <!-- Premium Tab -->
+        <div id="premium" class="tab-content">
+            <div class="subscription-status" id="subscriptionStatus">
+                <h3>Current Plan: <span id="currentPlan">FREE</span></h3>
+                <p id="planDetails">3 verifications remaining this month</p>
+            </div>
+
+            <!-- Basic Plan -->
+            <div class="pricing-card">
+                <h3>Basic Plan</h3>
+                <div class="price">$9.99<span class="price-period">/month</span></div>
+                <ul class="features-list">
+                    <li>Unlimited strain verifications</li>
+                    <li>Basic lab results</li>
+                    <li>QR code generation</li>
+                    <li>Email support</li>
+                </ul>
+                <button class="btn btn-primary" onclick="subscribeToPlan('basic', 9.99)">
+                    Subscribe to Basic
+                </button>
+            </div>
+
+            <!-- Premium Plan -->
+            <div class="pricing-card featured">
+                <h3>Premium Plan ⭐</h3>
+                <div class="price premium">$29.99<span class="price-period">/month</span></div>
+                <ul class="features-list">
+                    <li>Everything in Basic</li>
+                    <li>Advanced terpene analysis</li>
+                    <li>Effects predictions</li>
+                    <li>Market price tracking</li>
+                    <li>Similar strain recommendations</li>
+                    <li>Priority support</li>
+                </ul>
+                <button class="btn btn-premium" onclick="subscribeToPlan('premium', 29.99)">
+                    Subscribe to Premium
+                </button>
+            </div>
+
+            <!-- VIP Plan -->
+            <div class="pricing-card">
+                <h3>VIP Plan</h3>
+                <div class="price">$99.99<span class="price-period">/month</span></div>
+                <ul class="features-list">
+                    <li>Everything in Premium</li>
+                    <li>White-label solutions</li>
+                    <li>API access</li>
+                    <li>Custom branding</li>
+                    <li>Dedicated account manager</li>
+                    <li>Advanced analytics</li>
+                </ul>
+                <button class="btn btn-primary" onclick="subscribeToPlan('vip', 99.99)">
+                    Subscribe to VIP
+                </button>
+            </div>
+        </div>
+
+        <!-- Earn Tab -->
+        <div id="earn" class="tab-content">
+            <div class="earnings-display">
+                <div class="earnings-amount" id="totalEarnings">0.00 TON</div>
+                <p>Total Earnings</p>
+                <button class="btn btn-premium" onclick="withdrawEarnings()">
+                    Withdraw Earnings
+                </button>
+            </div>
+
+            <h3>💰 Ways to Earn TON</h3>
+
+            <!-- Referral Program -->
+            <div class="feature-card">
+                <h4>🔗 Referral Program</h4>
+                <p>Earn 0.1 TON for each friend who joins + 10% of their subscription fees</p>
+                <div class="referral-code" id="referralCode">REF-ABC123</div>
+                <button class="btn btn-secondary" onclick="shareReferralCode()">
+                    Share Referral Link
+                </button>
+            </div>
+
+            <!-- Daily Challenges -->
+            <div class="feature-card">
+                <h4>🎯 Daily Challenges</h4>
+                <div style="margin: 10px 0;">
+                    <p>✅ Verify 3 strains today (+0.01 TON) - Complete!</p>
+                    <p>⏳ Share app with friend (+0.05 TON) - In Progress</p>
+                    <p>❌ Write strain review (+0.02 TON) - Pending</p>
+                </div>
+                <button class="btn btn-primary" onclick="completeChallenge()">
+                    Complete Next Challenge
+                </button>
+            </div>
+
+            <!-- Verification Rewards -->
+            <div class="feature-card">
+                <h4>🏆 Verification Milestones</h4>
+                <p>Earn TON rewards for verification milestones:</p>
+                <ul class="features-list" style="text-align: left; margin: 10px 0;">
+                    <li>10 verifications: 0.1 TON</li>
+                    <li>50 verifications: 0.5 TON</li>
+                    <li>100 verifications: 1.0 TON</li>
+                    <li>500 verifications: 5.0 TON</li>
+                </ul>
+                <p>Current progress: <span id="verificationProgress">0/10</span></p>
+            </div>
+
+            <!-- Staking Rewards -->
+            <div class="feature-card">
+                <h4>💎 Stake NFTs for Rewards</h4>
+                <p>Stake your StrainChain NFTs to earn 5% APY in TON tokens</p>
+                <button class="btn btn-secondary" onclick="openStaking()">
+                    View Staking Pool
+                </button>
+            </div>
+        </div>
+
+        <!-- Gallery Tab -->
+        <div id="gallery" class="tab-content">
+            <div class="success-message" id="gallerySuccess"></div>
+            <div class="error-message" id="galleryError"></div>
+
+            <!-- Featured Collection Banner -->
+            <div class="featured-collection" style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 237, 78, 0.1)); border: 1px solid #ffd700; border-radius: 12px; padding: 20px; margin-bottom: 20px; text-align: center;">
+                <h2>🔥 Vintage Package Art NFTs</h2>
+                <p>Own a piece of cannabis history</p>
+                <div class="collection-stats" style="display: flex; justify-content: space-around; margin-top: 10px; font-size: 12px;">
+                    <span>📊 <span id="totalOwners">2,847</span> Owners</span>
+                    <span>💎 0.5-200 TON</span>
+                    <span>🎯 <span id="soldPercentage">87</span>% Sold</span>
+                </div>
+                <button class="btn btn-premium" onclick="showSubmissionForm()" style="margin-top: 15px;">
+                    Submit Your Vintage Art
+                </button>
+            </div>
+
+            <!-- Filter Controls -->
+            <div class="filter-controls" style="display: flex; gap: 10px; margin-bottom: 15px; overflow-x: auto;">
+                <select id="eraFilter" class="form-input" style="flex: 1; min-width: 120px;" onchange="filterNFTs()">
+                    <option value="all">All Eras</option>
+                    <option value="1970s">1970s Psychedelic</option>
+                    <option value="1980s">1980s Underground</option>
+                    <option value="1990s">1990s Street Art</option>
+                    <option value="2000s">2000s Medical</option>
+                    <option value="2010s">2010s Craft</option>
+                </select>
+                
+                <select id="priceFilter" class="form-input" style="flex: 1; min-width: 100px;" onchange="filterNFTs()">
+                    <option value="all">All Prices</option>
+                    <option value="0.5-2">0.5-2 TON</option>
+                    <option value="2-10">2-10 TON</option>
+                    <option value="10-50">10-50 TON</option>
+                    <option value="50+">50+ TON</option>
+                </select>
+
+                <select id="typeFilter" class="form-input" style="flex: 1; min-width: 100px;" onchange="filterNFTs()">
+                    <option value="all">All Types</option>
+                    <option value="static">Static Art</option>
+                    <option value="animated">Animated</option>
+                    <option value="interactive">Interactive</option>
+                    <option value="commercial">Commercial Rights</option>
+                </select>
+            </div>
+
+            <!-- NFT Grid -->
+            <div class="nft-grid" id="nftGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+                <!-- Sample NFTs will be populated here -->
+            </div>
+
+            <!-- Load More Button -->
+            <button class="btn btn-secondary" onclick="loadMoreNFTs()" id="loadMoreBtn" style="margin-top: 20px;">
+                Load More Vintage Art
+            </button>
+
+            <!-- Package Art Submission Form (Hidden by default) -->
+            <div id="submissionForm" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.9); z-index: 1000; padding: 20px; overflow-y: auto;">
+                <div style="background: #1a2332; border-radius: 12px; padding: 20px; max-width: 400px; margin: 0 auto;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3>📤 Submit Vintage Package Art</h3>
+                        <button onclick="hideSubmissionForm()" style="background: none; border: none; color: #fff; font-size: 24px; cursor: pointer;">&times;</button>
+                    </div>
+                    
+                    <div class="revenue-share" style="background: rgba(0, 212, 170, 0.1); border: 1px solid #00d4aa; border-radius: 8px; padding: 15px; margin-bottom: 20px; text-align: center;">
+                        <p><strong>💰 Revenue Share: 70% You / 30% StrainChain</strong></p>
+                        <p style="font-size: 12px; opacity: 0.8; margin-top: 5px;">Estimated value: $50-$500 per unique piece</p>
+                    </div>
+                    
+                    <form id="artSubmissionForm">
+                        <div class="form-group">
+                            <label class="form-label">Package Image</label>
+                            <input type="file" class="form-input" id="packageImage" accept="image/*" required>
+                            <p style="font-size: 12px; opacity: 0.7; margin-top: 5px;">JPG, PNG, or HEIC. We'll enhance quality with AI.</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Strain Name (if known)</label>
+                            <input type="text" class="form-input" id="strainName" placeholder="e.g., Purple Haze, Maui Wowie">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Approximate Year/Era</label>
+                            <select class="form-input" id="artEra" required>
+                                <option value="">Select Era</option>
+                                <option value="1960s">1960s - Early Underground</option>
+                                <option value="1970s">1970s - Psychedelic Era</option>
+                                <option value="1980s">1980s - Reagan Years</option>
+                                <option value="1990s">1990s - Grunge/Hip-Hop</option>
+                                <option value="2000s">2000s - Medical Cannabis</option>
+                                <option value="2010s">2010s - Craft Cannabis</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Story Behind This Package</label>
+                            <textarea class="form-input" id="packageStory" rows="3" placeholder="Where did you get this? Any interesting history? Artist info?"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Condition</label>
+                            <select class="form-input" id="condition" required>
+                                <option value="">Select Condition</option>
+                                <option value="mint">Mint - Like new</option>
+                                <option value="excellent">Excellent - Minor wear</option>
+                                <option value="good">Good - Some wear/fading</option>
+                                <option value="fair">Fair - Significant wear</option>
+                                <option value="poor">Poor - Heavily damaged</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Contact Information</label>
+                            <input type="text" class="form-input" id="contactInfo" placeholder="Telegram username or email" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-premium">
+                            Submit for Review & Valuation
+                        </button>
+                        
+                        <p style="font-size: 12px; opacity: 0.7; margin-top: 10px; text-align: center;">
+                            Review process: 24-48 hours. You'll receive valuation and revenue projection.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Business Tab (existing content) -->
+        <div id="business" class="tab-content">
+            <div class="business-cta">
+                <h2>🏢 Business Solutions</h2>
+                <p>Professional cannabis authentication for dispensaries, cultivators, and labs</p>
+            </div>
+
+            <!-- Dispensary Package -->
+            <div class="pricing-card">
+                <h3>🏪 Dispensary Package</h3>
+                <div class="price">$499<span class="price-period">/month</span></div>
+                <ul class="features-list">
+                    <li>100 strain authentications/month</li>
+                    <li>Custom QR code generation</li>
+                    <li>Customer verification portal</li>
+                    <li>Basic analytics dashboard</li>
+                    <li>Email support</li>
+                </ul>
+                <button class="btn btn-primary" onclick="contactSales('dispensary')">
+                    Contact Sales
+                </button>
+            </div>
+
+            <!-- Cultivator Package -->
+            <div class="pricing-card featured">
+                <h3>🌱 Cultivator Package</h3>
+                <div class="price premium">$299<span class="price-period">/month</span></div>
+                <ul class="features-list">
+                    <li>50 strain NFT mints/month</li>
+                    <li>Lab integration</li>
+                    <li>Batch authentication</li>
+                    <li>Supply chain tracking</li>
+                    <li>Phone support</li>
+                </ul>
+                <button class="btn btn-premium" onclick="contactSales('cultivator')">
+                    Start Free Trial
+                </button>
+            </div>
+
+            <!-- Lab Package -->
+            <div class="pricing-card">
+                <h3>🧪 Laboratory Package</h3>
+                <div class="price">$199<span class="price-period">/month</span></div>
+                <ul class="features-list">
+                    <li>Unlimited verifications</li>
+                    <li>API integration</li>
+                    <li>White-label portal</li>
+                    <li>Automated reporting</li>
+                    <li>Priority support</li>
+                </ul>
+                <button class="btn btn-primary" onclick="contactSales('lab')">
+                    Schedule Demo
+                </button>
+            </div>
+
+            <!-- Enterprise -->
+            <div class="feature-card">
+                <h3>🏢 Enterprise Solutions</h3>
+                <p>Custom solutions for multi-state operators and large cannabis companies</p>
+                <ul class="features-list">
+                    <li>Custom development</li>
+                    <li>Dedicated infrastructure</li>
+                    <li>Advanced analytics</li>
+                    <li>24/7 support</li>
+                    <li>SLA guarantees</li>
+                </ul>
+                <button class="btn btn-premium" onclick="contactSales('enterprise')">
+                    Contact Enterprise Sales
+                </button>
             </div>
         </div>
     </div>
 
     <script>
-        // Initialize Telegram WebApp
+        // Telegram WebApp initialization
         let tg = window.Telegram?.WebApp;
-        let user = tg?.initDataUnsafe?.user;
-
         if (tg) {
             tg.ready();
             tg.expand();
-            tg.setHeaderColor('#1a2332');
-            tg.setBackgroundColor('#0d1421');
+            tg.MainButton.setText("VERIFY STRAIN");
+            tg.MainButton.show();
         }
 
-        // Configuration
-        const CONFIG = {
-            TELEGRAM_BOT_TOKEN: 'YOUR_BOT_TOKEN_HERE',
-            TON_WALLET_ADDRESS: 'UQD...your_wallet_address',
-            API_BASE_URL: 'https://your-domain.github.io/strainchain-app'
-        };
-
-        // App State
+        // App state
         let appState = {
-            currentTab: 'verify',
-            userEarnings: 127.50,
-            isWalletConnected: false,
-            isPremium: false,
-            scanCount: 0,
-            userNFTs: []
+            userPlan: 'free',
+            verificationCount: 0,
+            freeVerificationsLeft: 3,
+            totalEarnings: 0,
+            referralCode: 'REF-' + Math.random().toString(36).substr(2, 6).toUpperCase(),
+            walletConnected: false,
+            businessAccount: false
         };
 
-        // Initialize app
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeApp();
-            updateStats();
-            
-            if (user) {
-                console.log('User:', user.first_name);
-                tg.showAlert(`Welcome ${user.first_name}! Ready to authenticate cannabis?`);
+        // Load user data from Telegram
+        function initializeUser() {
+            if (tg && tg.initDataUnsafe?.user) {
+                const user = tg.initDataUnsafe.user;
+                console.log('Telegram user:', user);
+                
+                // Load user preferences from server
+                loadUserData(user.id);
             }
-        });
-
-        function initializeApp() {
-            // Simulate real-time updates
-            setInterval(updateStats, 10000);
             
-            // Initialize TON Connect if available
-            if (window.TonConnect) {
-                initTonConnect();
+            updateUI();
+        }
+
+        async function loadUserData(userId) {
+            try {
+                // Simulate API call to load user data
+                const userData = await fetch(`/api/user/${userId}`, {
+                    headers: {
+                        'X-Telegram-Init-Data': tg.initData
+                    }
+                });
+                
+                if (userData.ok) {
+                    const data = await userData.json();
+                    appState = { ...appState, ...data };
+                }
+            } catch (error) {
+                console.log('Using default user data');
             }
         }
 
-        function updateStats() {
-            const stats = {
-                totalScans: Math.floor(Math.random() * 100) + 1200,
-                authenticRate: (97 + Math.random() * 2).toFixed(1),
-                savedMoney: (2.2 + Math.random() * 0.2).toFixed(1)
-            };
+        function updateUI() {
+            // Update header stats
+            document.getElementById('userLevel').textContent = appState.userPlan.toUpperCase();
+            document.getElementById('verificationCount').textContent = appState.verificationCount;
+            document.getElementById('earningsCount').textContent = appState.totalEarnings.toFixed(2);
             
-            document.getElementById('totalScans').textContent = stats.totalScans.toLocaleString();
-            document.getElementById('authenticProducts').textContent = stats.authenticRate + '%';
-            document.getElementById('savedMoney').textContent = '$' + stats.savedMoney + 'M';
+            // Update user badge
+            if (appState.userPlan !== 'free') {
+                document.getElementById('userBadge').style.display = 'inline-block';
+                document.getElementById('userBadge').textContent = appState.userPlan.toUpperCase();
+            }
+            
+            // Update free user limit warning
+            if (appState.userPlan === 'free' && appState.freeVerificationsLeft <= 5) {
+                document.getElementById('freeUserLimit').style.display = 'block';
+                document.getElementById('freeUserLimit').innerHTML = 
+                    `⚠️ Free plan: ${appState.freeVerificationsLeft} verifications remaining. Upgrade for unlimited!`;
+            }
+            
+            // Update business features
+            if (appState.businessAccount) {
+                document.getElementById('businessRequired').style.display = 'none';
+                document.getElementById('mintForm').style.display = 'block';
+            }
+            
+            // Update subscription status
+            updateSubscriptionStatus();
+            
+            // Update earnings
+            document.getElementById('totalEarnings').textContent = appState.totalEarnings.toFixed(2) + ' TON';
+            document.getElementById('referralCode').textContent = appState.referralCode;
+            document.getElementById('verificationProgress').textContent = 
+                `${appState.verificationCount}/10`;
         }
 
+        function updateSubscriptionStatus() {
+            const statusDiv = document.getElementById('subscriptionStatus');
+            const currentPlan = document.getElementById('currentPlan');
+            const planDetails = document.getElementById('planDetails');
+            
+            currentPlan.textContent = appState.userPlan.toUpperCase();
+            
+            if (appState.userPlan === 'free') {
+                planDetails.textContent = `${appState.freeVerificationsLeft} verifications remaining this month`;
+                statusDiv.style.background = 'rgba(239, 68, 68, 0.1)';
+                statusDiv.style.borderColor = '#ef4444';
+            } else {
+                planDetails.textContent = 'Unlimited verifications • Premium features unlocked';
+                statusDiv.style.background = 'rgba(0, 212, 170, 0.1)';
+                statusDiv.style.borderColor = '#00d4aa';
+            }
+        }
+
+        // Tab switching
         function switchTab(tabName) {
-            // Hide all tabs
-            document.querySelectorAll('.tab-content').forEach(tab => {
+            // Update tab buttons
+            document.querySelectorAll('.nav-tab').forEach(tab => {
                 tab.classList.remove('active');
             });
-            
-            // Remove active class from all buttons
-            document.querySelectorAll('.tab-button').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            // Show selected tab
-            document.getElementById(tabName + '-tab').classList.add('active');
             event.target.classList.add('active');
-            appState.currentTab = tabName;
-            
-            // Trigger haptic feedback
+
+            // Update tab content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(tabName).classList.add('active');
+
+            // Update Telegram main button
             if (tg) {
-                tg.HapticFeedback.impactOccurred('light');
+                switch(tabName) {
+                    case 'verify':
+                        tg.MainButton.setText("SCAN QR CODE");
+                        tg.MainButton.show();
+                        break;
+                    case 'mint':
+                        tg.MainButton.setText(appState.businessAccount ? "MINT NFT" : "UPGRADE TO BUSINESS");
+                        tg.MainButton.show();
+                        break;
+                    case 'premium':
+                        tg.MainButton.setText("UPGRADE NOW");
+                        tg.MainButton.show();
+                        break;
+                    case 'earn':
+                        tg.MainButton.setText("COMPLETE CHALLENGE");
+                        tg.MainButton.show();
+                        break;
+                    case 'business':
+                        tg.MainButton.setText("CONTACT SALES");
+                        tg.MainButton.show();
+                        break;
+                }
             }
         }
 
-        function startScanner() {
+        // QR Code simulation
+        function simulateQRScan() {
+            if (appState.userPlan === 'free' && appState.freeVerificationsLeft <= 0) {
+                showMessage('verifyError', 'Free verification limit reached. Upgrade to continue!');
+                return;
+            }
+
+            const qrPlaceholder = document.getElementById('qrPlaceholder');
+            qrPlaceholder.innerHTML = '🔍';
+            qrPlaceholder.style.borderColor = '#00d4aa';
+            
+            setTimeout(() => {
+                document.getElementById('verificationCode').value = 'STRAIN-' + Math.random().toString(36).substr(2, 6).toUpperCase();
+                verifyStrain();
+                qrPlaceholder.innerHTML = '📱';
+                qrPlaceholder.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+            }, 2000);
+        }
+
+        // Strain verification
+        function verifyStrain() {
+            const code = document.getElementById('verificationCode').value;
+            
+            if (!code) {
+                showMessage('verifyError', 'Please enter a verification code or scan QR');
+                return;
+            }
+
+            if (appState.userPlan === 'free' && appState.freeVerificationsLeft <= 0) {
+                showMessage('verifyError', 'Free verification limit reached. Upgrade to continue!');
+                return;
+            }
+
+            // Simulate verification
+            setTimeout(() => {
+                if (code.startsWith('STRAIN-')) {
+                    // Successful verification
+                    document.getElementById('verificationResult').style.display = 'block';
+                    
+                    // Show premium features for non-premium users
+                    if (appState.userPlan === 'free' || appState.userPlan === 'basic') {
+                        document.getElementById('premiumAnalysis').style.display = 'block';
+                    } else {
+                        document.getElementById('premiumAnalysis').style.display = 'none';
+                    }
+                    
+                    // Update counters
+                    appState.verificationCount++;
+                    if (appState.userPlan === 'free') {
+                        appState.freeVerificationsLeft--;
+                    }
+                    
+                    // Award earnings
+                    appState.totalEarnings += 0.001; // Small reward for verification
+                    
+                    updateUI();
+                    showMessage('verifySuccess', '✅ Strain verified successfully! +0.001 TON earned');
+                    
+                    // Send to Telegram
+                    if (tg) {
+                        tg.sendData(JSON.stringify({
+                            action: 'strain_verified',
+                            code: code,
+                            earnings: 0.001
+                        }));
+                    }
+                } else {
+                    showMessage('verifyError', '❌ Invalid verification code or counterfeit product');
+                }
+            }, 1000);
+        }
+
+        // Subscription handling
+        async function subscribeToPlan(plan, price) {
+            if (!appState.walletConnected) {
+                if (confirm('Connect TON wallet to subscribe?')) {
+                    await connectWallet();
+                }
+                return;
+            }
+
+            try {
+                showLoading('Loading payment...');
+                
+                // Simulate TON payment
+                await new Promise(resolve => setTimeout(resolve, 3000));
+                
+                appState.userPlan = plan;
+                if (plan !== 'free') {
+                    appState.freeVerificationsLeft = 999; // Unlimited
+                }
+                
+                updateUI();
+                showMessage('subscriptionSuccess', `Successfully subscribed to ${plan.toUpperCase()} plan!`);
+                
+                // Send to Telegram
+                if (tg) {
+                    tg.sendData(JSON.stringify({
+                        action: 'subscription_purchased',
+                        plan: plan,
+                        price: price
+                    }));
+                }
+                
+                hideLoading();
+                
+            } catch (error) {
+                showMessage('subscriptionError', 'Payment failed. Please try again.');
+                hideLoading();
+            }
+        }
+
+        // Referral system
+        function shareReferralCode() {
+            const referralLink = `https://t.me/strainchain_bot/app?ref=${appState.referralCode}`;
+            
             if (tg) {
-                tg.showScanQrPopup({
-                    text: 'Scan QR code on cannabis product packaging'
-                }, function(text) {
-                    if (text) {
-                        processQRCode(text);
+                tg.showPopup({
+                    title: '🔗 Share StrainChain',
+                    message: 'Earn 0.1 TON for each friend who joins!',
+                    buttons: [
+                        {
+                            type: 'default',
+                            text: 'Share Link'
+                        },
+                        {
+                            type: 'cancel',
+                            text: 'Cancel'
+                        }
+                    ]
+                }, (buttonId) => {
+                    if (buttonId === 'default') {
+                        tg.openTelegramLink(`https://t.me/share/url?url=${encodeURIComponent(referralLink)}&text=${encodeURIComponent('Check out StrainChain - Cannabis Authentication on TON blockchain! 🌿')}`);
                     }
                 });
             } else {
-                // Fallback for testing
-                simulateVerification();
+                // Fallback for non-Telegram environment
+                navigator.clipboard.writeText(referralLink);
+                showMessage('referralSuccess', 'Referral link copied to clipboard!');
             }
         }
 
-        function processQRCode(qrText) {
-            tg?.showAlert('Processing QR code...');
-            
-            // Simulate verification process
-            setTimeout(() => {
-                simulateVerification();
-            }, 2000);
-        }
-
-        function simulateVerification() {
-            const strains = [
-                {
-                    name: 'Purple Haze Premium',
-                    type: 'Sativa Dominant Hybrid',
-                    thc: '22.5%',
-                    cbd: '0.8%',
-                    batch: '#PH-2024-0315',
-                    lab: 'GreenLab Analytics',
-                    date: 'March 15, 2024',
-                    value: '$45.00'
-                },
-                {
-                    name: 'OG Kush Elite',
-                    type: 'Indica Dominant Hybrid',
-                    thc: '24.2%',
-                    cbd: '1.2%',
-                    batch: '#OG-2024-0298',
-                    lab: 'CannTest Labs',
-                    date: 'March 12, 2024',
-                    value: '$52.00'
-                },
-                {
-                    name: 'Blue Dream Classic',
-                    type: 'Balanced Hybrid',
-                    thc: '19.8%',
-                    cbd: '2.1%',
-                    batch: '#BD-2024-0341',
-                    lab: 'TerpLab Solutions',
-                    date: 'March 18, 2024',
-                    value: '$38.00'
-                }
+        // Earnings and challenges
+        function completeChallenge() {
+            const challenges = [
+                { name: 'Share with friend', reward: 0.05 },
+                { name: 'Write strain review', reward: 0.02 },
+                { name: 'Verify 5 strains', reward: 0.03 }
             ];
             
-            const selectedStrain = strains[Math.floor(Math.random() * strains.length)];
+            const challenge = challenges[Math.floor(Math.random() * challenges.length)];
+            appState.totalEarnings += challenge.reward;
+            updateUI();
             
-            // Update verification result
-            document.getElementById('strain-name').textContent = selectedStrain.name;
-            document.getElementById('strain-type').textContent = selectedStrain.type;
-            document.getElementById('thc-content').textContent = selectedStrain.thc;
-            document.getElementById('cbd-content').textContent = selectedStrain.cbd;
-            document.getElementById('batch-number').textContent = selectedStrain.batch;
-            document.getElementById('lab-name').textContent = selectedStrain.lab;
-            document.getElementById('test-date').textContent = selectedStrain.date;
-            document.getElementById('nft-value').textContent = selectedStrain.value;
-            
-            // Show verification result
-            document.getElementById('verification-result').style.display = 'block';
-            document.getElementById('verification-result').scrollIntoView({ behavior: 'smooth' });
-            
-            // Update scan count and earnings
-            appState.scanCount++;
-            appState.userEarnings += 2.50;
-            document.getElementById('total-earnings').textContent = '$' + appState.userEarnings.toFixed(2);
-            
-            if (tg) {
-                tg.HapticFeedback.notificationOccurred('success');
-                tg.showAlert('✅ Product verified as authentic!');
-            }
-        }
-
-        function showFeatureInfo(feature) {
-            const features = {
-                lab: {
-                    title: '🧪 Laboratory Results',
-                    content: `
-                        <h3>Verified Lab Testing</h3>
-                        <p>Every StrainChain-verified product includes comprehensive laboratory analysis:</p>
-                        <ul>
-                            <li><strong>Cannabinoid Profile:</strong> Precise THC, CBD, CBG levels</li>
-                            <li><strong>Terpene Analysis:</strong> Complete aromatic compound breakdown</li>
-                            <li><strong>Contaminant Testing:</strong> Pesticides, heavy metals, microbials</li>
-                            <li><strong>Potency Verification:</strong> Accuracy within ±2% tolerance</li>
-                        </ul>
-                        <p>All results are cryptographically signed and stored on the blockchain for immutable verification.</p>
-                    `
-                },
-                genetics: {
-                    title: '🧬 Strain Genetics',
-                    content: `
-                        <h3>Complete Genetic Lineage</h3>
-                        <p>Explore the genetic heritage of your cannabis:</p>
-                        <ul>
-                            <li><strong>Parent Strains:</strong> Full breeding history</li>
-                            <li><strong>Phenotype Data:</strong> Growth characteristics</li>
-                            <li><strong>Genetic Markers:</strong> DNA fingerprinting</li>
-                            <li><strong>Breeder Information:</strong> Cultivation techniques</li>
-                        </ul>
-                        <p>Our genetic database contains over 3,000 verified strain profiles.</p>
-                    `
-                },
-                blockchain: {
-                    title: '⛓️ Blockchain Verification',
-                    content: `
-                        <h3>TON Blockchain Security</h3>
-                        <p>StrainChain leverages The Open Network for unbreakable authentication:</p>
-                        <ul>
-                            <li><strong>Immutable Records:</strong> Cannot be altered or faked</li>
-                            <li><strong>Smart Contracts:</strong> Automated verification logic</li>
-                            <li><strong>NFT Certificates:</strong> Unique digital ownership</li>
-                            <li><strong>Global Accessibility:</strong> Verify anywhere, anytime</li>
-                        </ul>
-                        <p>Each verification is permanently recorded with cryptographic proof.</p>
-                    `
-                },
-                community: {
-                    title: '👥 StrainChain Community',
-                    content: `
-                        <h3>Join 50,000+ Cannabis Enthusiasts</h3>
-                        <p>Connect with verified cannabis consumers worldwide:</p>
-                        <ul>
-                            <li><strong>Product Reviews:</strong> Real user experiences</li>
-                            <li><strong>Strain Discussions:</strong> Expert community insights</li>
-                            <li><strong>Trading Platform:</strong> NFT marketplace</li>
-                            <li><strong>Educational Content:</strong> Cannabis science & culture</li>
-                        </ul>
-                        <p>Earn rewards for contributing to the community knowledge base.</p>
-                    `
-                }
-            };
-            
-            if (features[feature]) {
-                document.getElementById('modal-content-area').innerHTML = `
-                    <h2>${features[feature].title}</h2>
-                    ${features[feature].content}
-                `;
-                document.getElementById('feature-modal').style.display = 'block';
-            }
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-        }
-
-        function viewFullReport() {
-            if (tg) {
-                tg.openLink('https://greenlab-analytics.com/report/PH-2024-0315');
-            }
-        }
-
-        function collectNFT() {
-            if (!appState.isWalletConnected) {
-                tg?.showAlert('Please connect your TON wallet first to collect NFT certificates.');
-                return;
-            }
-            
-            // Simulate NFT minting
-            setTimeout(() => {
-                appState.userNFTs.push({
-                    id: 'NFT-' + Date.now(),
-                    strain: document.getElementById('strain-name').textContent,
-                    value: document.getElementById('nft-value').textContent
-                });
-                
-                tg?.showAlert('🎉 NFT Certificate collected! Check your wallet.');
-                if (tg) {
-                    tg.HapticFeedback.notificationOccurred('success');
-                }
-            }, 2000);
-        }
-
-        function connectWallet() {
-            // Simulate wallet connection
-            appState.isWalletConnected = true;
-            document.getElementById('ton-wallet').style.display = 'block';
-            
-            tg?.showAlert('TON Wallet connected successfully!');
-            if (tg) {
-                tg.HapticFeedback.notificationOccurred('success');
-            }
-        }
-
-        function viewNFT(nftId) {
-            const nftData = {
-                'og-kush': { name: 'OG Kush #001', price: '12 TON', rarity: 'Legendary' },
-                'blue-dream': { name: 'Blue Dream #156', price: '8.5 TON', rarity: 'Rare' },
-                'sour-diesel': { name: 'Sour Diesel #089', price: '15 TON', rarity: 'Epic' },
-                'white-widow': { name: 'White Widow #234', price: '11 TON', rarity: 'Rare' }
-            };
-            
-            const nft = nftData[nftId];
-            if (nft) {
-                document.getElementById('modal-content-area').innerHTML = `
-                    <h2>💎 ${nft.name}</h2>
-                    <div style="text-align: center; margin: 20px 0;">
-                        <div style="width: 150px; height: 150px; background: linear-gradient(45deg, #00d4aa, #4facfe); 
-                                    border-radius: 20px; margin: 0 auto; display: flex; align-items: center; 
-                                    justify-content: center; font-size: 48px;">🌿</div>
-                    </div>
-                    <p><strong>Rarity:</strong> ${nft.rarity}</p>
-                    <p><strong>Current Price:</strong> ${nft.price}</p>
-                    <p><strong>Lab Verified:</strong> ✅ CannTest Labs</p>
-                    <p><strong>Blockchain:</strong> TON Network</p>
-                    <p><strong>Authenticity:</strong> 100% Verified</p>
-                    <div style="margin-top: 20px;">
-                        <button class="scan-button" onclick="purchaseNFT('${nftId}')">
-                            💰 Purchase NFT
-                        </button>
-                    </div>
-                `;
-                document.getElementById('feature-modal').style.display = 'block';
-            }
-        }
-
-        function purchaseNFT(nftId) {
-            if (!appState.isWalletConnected) {
-                tg?.showAlert('Please connect your TON wallet first.');
-                return;
-            }
-            
-            tg?.showAlert('Purchase initiated! Check your wallet for transaction confirmation.');
-            closeModal('feature-modal');
-        }
-
-        function viewMyCollection() {
-            if (appState.userNFTs.length === 0) {
-                tg?.showAlert('Your collection is empty. Verify products to collect NFT certificates!');
-                return;
-            }
-            
-            let collectionHTML = '<h2>🖼️ My NFT Collection</h2>';
-            appState.userNFTs.forEach(nft => {
-                collectionHTML += `
-                    <div style="background: rgba(255,255,255,0.1); padding: 15px; margin: 10px 0; border-radius: 10px;">
-                        <strong>${nft.strain}</strong><br>
-                        Value: ${nft.value}
-                    </div>
-                `;
-            });
-            
-            document.getElementById('modal-content-area').innerHTML = collectionHTML;
-            document.getElementById('feature-modal').style.display = 'block';
-        }
-
-        function completeTask(taskType) {
-            const tasks = {
-                scan: { reward: 2.50, message: 'Great! Keep scanning products to earn more.' },
-                review: { reward: 5.00, message: 'Thank you for your honest review!' },
-                refer: { reward: 10.00, message: 'Friend invitation sent! Earn when they join.' },
-                daily: { reward: 1.00, message: 'Daily check-in complete! Come back tomorrow.' },
-                nft: { reward: 15.00, message: 'NFT trading reward earned!' }
-            };
-            
-            const task = tasks[taskType];
-            if (task) {
-                appState.userEarnings += task.reward;
-                document.getElementById('total-earnings').textContent = '$' + appState.userEarnings.toFixed(2);
-                
-                tg?.showAlert(`+$${task.reward} earned! ${task.message}`);
-                if (tg) {
-                    tg.HapticFeedback.notificationOccurred('success');
-                }
-            }
+            showMessage('challengeSuccess', `Challenge "${challenge.name}" completed! +${challenge.reward} TON earned`);
         }
 
         function withdrawEarnings() {
-            if (!appState.isWalletConnected) {
-                tg?.showAlert('Please connect your TON wallet first.');
+            if (appState.totalEarnings < 0.1) {
+                showMessage('withdrawError', 'Minimum withdrawal amount is 0.1 TON');
                 return;
             }
             
-            if (appState.userEarnings < 10) {
-                tg?.showAlert('Minimum withdrawal amount is $10.00');
+            if (!appState.walletConnected) {
+                showMessage('withdrawError', 'Please connect your TON wallet first');
                 return;
             }
             
-            tg?.showAlert(`Withdrawing $${appState.userEarnings.toFixed(2)} to your TON wallet...`);
+            // Simulate withdrawal
+            showMessage('withdrawSuccess', `${appState.totalEarnings.toFixed(3)} TON sent to your wallet!`);
+            appState.totalEarnings = 0;
+            updateUI();
+        }
+
+        // Business features
+        function contactSales(packageType) {
+            if (tg) {
+                tg.sendData(JSON.stringify({
+                    action: 'contact_sales',
+                    package: packageType,
+                    userId: tg.initDataUnsafe?.user?.id
+                }));
+                
+                showMessage('salesSuccess', 'Sales team will contact you within 24 hours!');
+            }
+        }
+
+        // Wallet connection
+        async function connectWallet() {
+            try {
+                // Simulate wallet connection
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                appState.walletConnected = true;
+                showMessage('walletSuccess', 'TON wallet connected successfully!');
+                
+                return true;
+            } catch (error) {
+                showMessage('walletError', 'Failed to connect wallet');
+                return false;
+            }
+        }
+
+        // Utility functions
+        function showMessage(type, message) {
+            const element = document.createElement('div');
+            element.className = type.includes('error') ? 'error-message' : 'success-message';
+            element.textContent = message;
+            element.style.display = 'block';
+            
+            // Insert at top of current tab
+            const activeTab = document.querySelector('.tab-content.active');
+            activeTab.insertBefore(element, activeTab.firstChild);
             
             setTimeout(() => {
-                appState.userEarnings = 0;
-                document.getElementById('total-earnings').textContent = '$0.00';
-                tg?.showAlert('✅ Withdrawal successful!');
+                element.remove();
             }, 3000);
         }
 
-        function upgradeToPremium() {
-            if (appState.isPremium) {
-                tg?.showAlert('You are already a Premium member!');
-                return;
-            }
-            
-            const premiumFeatures = `
-                Upgrade to StrainChain Premium for $29.99/month:
-                
-                ✅ Unlimited verifications
-                ✅ Advanced analytics  
-                ✅ Priority support
-                ✅ Exclusive NFT drops
-                ✅ Business API access
-                ✅ White-label solutions
-                
-                Proceed with upgrade?
-            `;
-            
-            if (tg) {
-                tg.showConfirm(premiumFeatures, function(confirmed) {
-                    if (confirmed) {
-                        processPremiumUpgrade();
-                    }
-                });
-            }
+        function showLoading(message) {
+            // Implementation for loading state
+            console.log('Loading:', message);
         }
 
-        function processPremiumUpgrade() {
-            // Simulate payment processing
-            tg?.showAlert('Processing payment...');
-            
-            setTimeout(() => {
-                appState.isPremium = true;
-                tg?.showAlert('🌟 Welcome to StrainChain Premium! All features unlocked.');
-                
-                // Update UI to show premium status
-                document.querySelector('.premium-banner').innerHTML = `
-                    <div class="premium-title">🌟 Premium Active</div>
-                    <div>Thank you for upgrading to Premium!</div>
-                    <div style="margin: 15px 0;">All advanced features are now unlocked.</div>
-                `;
-            }, 3000);
+        function hideLoading() {
+            // Implementation for hiding loading state
+            console.log('Loading complete');
         }
 
-        function contactSales() {
-            if (tg) {
-                tg.openTelegramLink('https://t.me/strainchain_business');
-            }
-        }
-
-        function showPremiumFeature(feature) {
-            const features = {
-                analytics: {
-                    title: '📊 Advanced Analytics',
-                    content: `
-                        <h3>Premium Analytics Dashboard</h3>
-                        <p>Unlock powerful insights with Premium:</p>
-                        <ul>
-                            <li>Market trend analysis</li>
-                            <li>Price predictions</li>
-                            <li>Quality comparisons</li>
-                            <li>Consumer behavior data</li>
-                        </ul>
-                        <p>Make data-driven decisions for your cannabis business.</p>
-                    `
-                },
-                api: {
-                    title: '🔌 Business API',
-                    content: `
-                        <h3>StrainChain API Integration</h3>
-                        <p>Integrate authentication into your platform:</p>
-                        <ul>
-                            <li>RESTful API endpoints</li>
-                            <li>Real-time verification</li>
-                            <li>Bulk product imports</li>
-                            <li>Custom branding options</li>
-                        </ul>
-                        <p>Perfect for dispensaries, cultivators, and brands.</p>
-                    `
-                },
-                support: {
-                    title: '🎧 Priority Support',
-                    content: `
-                        <h3>24/7 Premium Support</h3>
-                        <p>Get help when you need it:</p>
-                        <ul>
-                            <li>Dedicated support team</li>
-                            <li>Live chat assistance</li>
-                            <li>Phone support available</li>
-                            <li>Custom solution development</li>
-                        </ul>
-                        <p>Premium members get first priority for all support requests.</p>
-                    `
-                },
-                nft: {
-                    title: '💎 Exclusive NFT Access',
-                    content: `
-                        <h3>Premium NFT Collections</h3>
-                        <p>Access exclusive digital collectibles:</p>
-                        <ul>
-                            <li>Limited edition strain NFTs</li>
-                            <li>Early access to drops</li>
-                            <li>Premium artwork collections</li>
-                            <li>Higher royalty earnings</li>
-                        </ul>
-                        <p>Premium members get first access to the most valuable NFTs.</p>
-                    `
-                }
-            };
-            
-            if (features[feature]) {
-                document.getElementById('modal-content-area').innerHTML = `
-                    <h2>${features[feature].title}</h2>
-                    ${features[feature].content}
-                    <div style="margin-top: 20px;">
-                        <button class="scan-button" onclick="upgradeToPremium()">
-                            ⭐ Upgrade to Access
-                        </button>
-                    </div>
-                `;
-                document.getElementById('feature-modal').style.display = 'block';
-            }
-        }
-
-        function viewTestimonials() {
-            const testimonials = `
-                <h2>⭐ Customer Reviews</h2>
+        // Telegram WebApp event handlers
+        if (tg) {
+            tg.onEvent('mainButtonClicked', function(){
+                const activeTab = document.querySelector('.tab-content.active');
                 
-                <div style="background: rgba(255,255,255,0.1); padding: 15px; margin: 15px 0; border-radius: 10px;">
-                    <strong>Sarah M. - Dispensary Owner</strong><br>
-                    "StrainChain has revolutionized how we verify product authenticity. Customer trust is at an all-time high!"
-                    <div style="color: #ffc107;">⭐⭐⭐⭐⭐</div>
-                </div>
-                
-                <div style="background: rgba(255,255,255,0.1); padding: 15px; margin: 15px 0; border-radius: 10px;">
-                    <strong>Mike T. - Cannabis Consumer</strong><br>
-                    "Finally, a way to know I'm getting authentic products. The NFT certificates are a cool bonus!"
-                    <div style="color: #ffc107;">⭐⭐⭐⭐⭐</div>
-                </div>
-                
-                <div style="background: rgba(255,255,255,0.1); padding: 15px; margin: 15px 0; border-radius: 10px;">
-                    <strong>Green Valley Farms</strong><br>
-                    "Our premium strains now command 40% higher prices thanks to StrainChain verification."
-                    <div style="color: #ffc107;">⭐⭐⭐⭐⭐</div>
-                </div>
-            `;
-            
-            document.getElementById('modal-content-area').innerHTML = testimonials;
-            document.getElementById('feature-modal').style.display = 'block';
-        }
-
-        function viewEarningHistory() {
-            const history = `
-                <h2>📈 Earning History</h2>
-                
-                <div style="background: rgba(255,255,255,0.1); padding: 15px; margin: 10px 0; border-radius: 10px;">
-                    <div style="display: flex; justify-content: space-between;">
-                        <span>Product Verification</span>
-                        <span style="color: #00d4aa;">+$2.50</span>
-                    </div>
-                    <div style="font-size: 12px; opacity: 0.7;">Today, 2:30 PM</div>
-                </div>
-                
-                <div style="background: rgba(255,255,255,0.1); padding: 15px; margin: 10px 0; border-radius: 10px;">
-                    <div style="display: flex; justify-content: space-between;">
-                        <span>Daily Check-in</span>
-                        <span style="color: #00d4aa;">+$1.00</span>
-                    </div>
-                    <div style="font-size: 12px; opacity: 0.7;">Today, 9:15 AM</div>
-                </div>
-                
-                <div style="background: rgba(255,255,255,0.1); padding: 15px; margin: 10px 0; border-radius: 10px;">
-                    <div style="display: flex; justify-content: space-between;">
-                        <span>Product Review</span>
-                        <span style="color: #00d4aa;">+$5.00</span>
-                    </div>
-                    <div style="font-size: 12px; opacity: 0.7;">Yesterday, 7:45 PM</div>
-                </div>
-                
-                <div style="margin-top: 20px; padding: 15px; background: rgba(0, 212, 170, 0.1); border-radius: 10px;">
-                    <strong>Total Earned This Month: $127.50</strong>
-                </div>
-            `;
-            
-            document.getElementById('modal-content-area').innerHTML = history;
-            document.getElementById('feature-modal').style.display = 'block';
-        }
-
-        // Initialize TON Connect
-        function initTonConnect() {
-            // TON Connect initialization would go here
-            console.log('TON Connect initialized');
-        }
-
-        // Handle batch input
-        document.addEventListener('DOMContentLoaded', function() {
-            const batchInput = document.getElementById('batch-input');
-            if (batchInput) {
-                batchInput.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        const batchCode = e.target.value.trim();
-                        if (batchCode) {
-                            simulateVerification();
-                            e.target.value = '';
+                switch(activeTab.id) {
+                    case 'verify':
+                        simulateQRScan();
+                        break;
+                    case 'mint':
+                        if (!appState.businessAccount) {
+                            switchTab('business');
+                        } else {
+                            // Mint NFT
                         }
-                    }
-                });
-            }
+                        break;
+                    case 'premium':
+                        subscribeToPlan('premium', 29.99);
+                        break;
+                    case 'earn':
+                        completeChallenge();
+                        break;
+                    case 'business':
+                        contactSales('dispensary');
+                        break;
+                }
+            });
+
+            // Handle theme
+            tg.setHeaderColor('#0d1421');
+            tg.setBackgroundColor('#0d1421');
+        }
+
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeUser();
+            
+            // Simulate some existing data for demo
+            appState.verificationCount = 7;
+            appState.totalEarnings = 0.156;
+            updateUI();
         });
 
-        // Handle Telegram WebApp events
-        if (tg) {
-            tg.onEvent('mainButtonClicked', function() {
-                // Handle main button click
-                startScanner();
-            });
+        // Handle form submissions
+        document.getElementById('strainMintForm')?.addEventListener('submit', async function(e) {
+            e.preventDefault();
             
-            tg.onEvent('backButtonClicked', function() {
-                // Handle back button
-                if (document.getElementById('verification-result').style.display === 'block') {
-                    document.getElementById('verification-result').style.display = 'none';
-                } else {
-                    tg.close();
+            if (!appState.businessAccount) {
+                showMessage('mintError', 'Business account required for minting');
+                return;
+            }
+            
+            const formData = new FormData(e.target);
+            const strainData = Object.fromEntries(formData.entries());
+            
+            try {
+                showLoading('Minting NFT on TON blockchain...');
+                
+                // Simulate blockchain minting
+                await new Promise(resolve => setTimeout(resolve, 4000));
+                
+                showMessage('mintSuccess', 'NFT minted successfully! QR codes generated for packaging.');
+                e.target.reset();
+                
+                if (tg) {
+                    tg.sendData(JSON.stringify({
+                        action: 'nft_minted',
+                        data: strainData
+                    }));
                 }
-            });
-        }
+                
+            } catch (error) {
+                showMessage('mintError', 'Failed to mint NFT. Please try again.');
+            } finally {
+                hideLoading();
+            }
+        });
     </script>
 </body>
 </html>
